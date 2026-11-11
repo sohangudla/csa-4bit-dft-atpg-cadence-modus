@@ -1,0 +1,87 @@
+STIL 1.0; 
+
+//***************************************************************************//
+//                             STIL SIGNALS FILE                             //
+//Cadence(R) Modus(TM) DFT Software Solution, Version 20.12-s002_1, built Feb//
+//***************************************************************************//
+//                                                                           //
+//  FILE CREATED..............October 31, 2026 at 17:37:07                   //
+//                                                                           //
+//  PROJECT NAME..............ece23117                                       //
+//                                                                           //
+//  TESTMODE..................FULLSCAN                                       //
+//                                                                           //
+//  INEXPERIMENT..............FULL                                           //
+//                                                                           //
+//  TDR.......................dummy.tdr                                      //
+//                                                                           //
+//  TEST PERIOD...............80.000   TEST TIME UNITS...........ns          //
+//  TEST PULSE WIDTH..........8.000                                          //
+//  TEST STROBE OFFSET........72.000   TEST STROBE TYPE..........edge        //
+//  TEST BIDI OFFSET..........0.000                                          //
+//  TEST PI OFFSET............0.000    X VALUE...................Z           //
+//                                                                           //
+//                                     SCAN OVERLAP..............yes         //
+//  SCAN PERIOD...............80.000   SCAN TIME UNITS...........ns          //
+//  SCAN PULSE WIDTH..........8.000                                          //
+//  SCAN STROBE OFFSET........0.000    SCAN STROBE TYPE..........edge        //
+//  SCAN BIDI OFFSET..........0.000                                          //
+//  SCAN PI OFFSET............0.000    X VALUE...................Z           //
+//                                                                           //
+//                                                                           //
+//   Individually set PIs                                                    //
+//  Active TESTMODEs TM = 1 ..FULLSCAN                                       //
+//                                                                           //
+//***************************************************************************//
+
+//***************************************************************************//
+//                              DEFINE SIGNALS                               //
+//***************************************************************************//
+
+  Signals { 
+    "X[0]" In;      // pinName = X[0]; testOffset = 0.000000;  scanOffset = 0.000000;  
+    "X[1]" In;      // pinName = X[1]; testOffset = 0.000000;  scanOffset = 0.000000;  
+    "X[2]" In;      // pinName = X[2]; testOffset = 0.000000;  scanOffset = 0.000000;  
+    "X[3]" In;      // pinName = X[3]; testOffset = 0.000000;  scanOffset = 0.000000;  
+    "Y[0]" In;      // pinName = Y[0]; testOffset = 0.000000;  scanOffset = 0.000000;  
+    "Y[1]" In;      // pinName = Y[1]; testOffset = 0.000000;  scanOffset = 0.000000;  
+    "Y[2]" In;      // pinName = Y[2]; testOffset = 0.000000;  scanOffset = 0.000000;  
+    "Y[3]" In;      // pinName = Y[3]; testOffset = 0.000000;  scanOffset = 0.000000;  
+    "Z[0]" In;      // pinName = Z[0]; testOffset = 0.000000;  scanOffset = 0.000000;  
+    "Z[1]" In;      // pinName = Z[1]; testOffset = 0.000000;  scanOffset = 0.000000;  
+    "Z[2]" In;      // pinName = Z[2]; testOffset = 0.000000;  scanOffset = 0.000000;  
+    "Z[3]" In;      // pinName = Z[3]; testOffset = 0.000000;  scanOffset = 0.000000;  
+    "C[0]" Out;      // pinName = C[0]; 
+    "C[1]" Out;      // pinName = C[1]; 
+    "C[2]" Out;      // pinName = C[2]; 
+    "C[3]" Out;      // pinName = C[3]; 
+    "S[0]" Out;      // pinName = S[0]; 
+    "S[1]" Out;      // pinName = S[1]; 
+    "S[2]" Out;      // pinName = S[2]; 
+    "S[3]" Out;      // pinName = S[3]; 
+  } 
+
+//***************************************************************************//
+//                           DEFINE SIGNAL GROUPS                            //
+//***************************************************************************//
+
+  SignalGroups { 
+
+    "ALLPIs" = '"X[0]"+"X[1]"+"X[2]"+"X[3]"+"Y[0]"+"Y[1]"+"Y[2]"+"Y[3]"
+               +"Z[0]"+"Z[1]"+"Z[2]"+"Z[3]"'; 
+
+    "ALLPOs" = '"C[0]"+"C[1]"+"C[2]"+"C[3]"+"S[0]"+"S[1]"+"S[2]"+"S[3]"'; 
+
+  } 
+
+//***************************************************************************//
+//                               DEFINE MACROS                               //
+//***************************************************************************//
+
+  MacroDefs { 
+
+    "TEST" { WaveformTable "test_cycle"; 
+      Vector { 
+        "ALLPOs" = %; 
+        "ALLPIs" = %; } } 
+} 

@@ -1,0 +1,49 @@
+# 4-bit Carry-Save Adder (csa_4bit), gate-level, ISCAS .bench format
+# 12 inputs, 8 outputs, 20 gates
+# PI/PO order matches Modus: X0..X3 Y0..Y3 Z0..Z3 / C0..C3 S0..S3
+
+INPUT(X0)
+INPUT(X1)
+INPUT(X2)
+INPUT(X3)
+INPUT(Y0)
+INPUT(Y1)
+INPUT(Y2)
+INPUT(Y3)
+INPUT(Z0)
+INPUT(Z1)
+INPUT(Z2)
+INPUT(Z3)
+
+OUTPUT(C0)
+OUTPUT(C1)
+OUTPUT(C2)
+OUTPUT(C3)
+OUTPUT(S0)
+OUTPUT(S1)
+OUTPUT(S2)
+OUTPUT(S3)
+
+fa0_x1 = XOR(X0, Y0)
+S0 = XOR(fa0_x1, Z0)
+fa0_a1 = AND(X0, Y0)
+fa0_a2 = AND(fa0_x1, Z0)
+C0 = OR(fa0_a1, fa0_a2)
+
+fa1_x1 = XOR(X1, Y1)
+S1 = XOR(fa1_x1, Z1)
+fa1_a1 = AND(X1, Y1)
+fa1_a2 = AND(fa1_x1, Z1)
+C1 = OR(fa1_a1, fa1_a2)
+
+fa2_x1 = XOR(X2, Y2)
+S2 = XOR(fa2_x1, Z2)
+fa2_a1 = AND(X2, Y2)
+fa2_a2 = AND(fa2_x1, Z2)
+C2 = OR(fa2_a1, fa2_a2)
+
+fa3_x1 = XOR(X3, Y3)
+S3 = XOR(fa3_x1, Z3)
+fa3_a1 = AND(X3, Y3)
+fa3_a2 = AND(fa3_x1, Z3)
+C3 = OR(fa3_a1, fa3_a2)
